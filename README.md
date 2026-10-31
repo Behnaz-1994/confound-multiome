@@ -27,8 +27,7 @@ Both datasets are public (GEO):
 ## Repository layout
 
 ```
-confound/core.py estimators, calibration (permutation, trans and matched-trans nulls), summaries
-analysis/
+confound/core.py                    estimators, calibration (permutation, trans and matched-trans nulls), summaries
 analysis/01_prostate_revision.py    prostate: reproduction of the original estimator, revised estimator, call decomposition,
                                     heterogeneity, sensitivity, trans / matched-trans nulls, permutation,
                                     treatment and library designs, cis-vs-trans comparison
@@ -39,14 +38,15 @@ analysis/04_drug_response.py        within-line drug response: AR-response score
                                     VCaP technical-replicate check, chromatin near AR targets (Figs. 9 and 10)
 analysis/05_lmm_validation.py       Fisher-z vs linear mixed model on 300 pairs (Supplementary Fig. S2)
 analysis/06_figr_style.py           simplified FigR-style linking (Spearman, ±100 kb, positive only, no smoothing)
-preprocessing/                      demultiplexing, QC, normalisation, integration (see preprocessing/README.md)
-results/                            summary files produced by the analysis scripts (see below)
+preprocessing/                      description of the preprocessing that produces checkpoints/ (see preprocessing/README.md)
+results/                            place for the summary files produced by the analysis scripts (see below)
 ```
 
 ## Running
 
-1. Run the preprocessing (`preprocessing/`). It writes, for each dataset, a `checkpoints/` folder with
-   the processed RNA and ATAC matrices (`*.h5ad`), `tss*.pkl` and the original link table.
+1. Preprocess each dataset as described in `preprocessing/README.md` and in Sections 2.2–2.3 of the
+   manuscript. This gives, for each dataset, a `checkpoints/` folder with the processed RNA and ATAC
+   matrices (`*.h5ad`), `tss*.pkl` and the original link table.
 2. Run the analyses:
 
 ```bash
@@ -67,7 +67,8 @@ The permutation test uses a CUDA GPU when available and falls back to the CPU.
 
 ## Results files
 
-`results/` contains the outputs used for the numbers in the manuscript:
+The analysis scripts write the following files to `<data>/revision_out/`; the numbers in the manuscript
+are taken from them. Copy them to `results/` to archive a run:
 
 | File | Produced by | Content |
 |---|---|---|
