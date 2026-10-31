@@ -38,6 +38,8 @@ analysis/04_drug_response.py        within-line drug response: AR-response score
                                     VCaP technical-replicate check, chromatin near AR targets (Figs. 9 and 10)
 analysis/05_lmm_validation.py       Fisher-z vs linear mixed model on 300 pairs (Supplementary Fig. S2)
 analysis/06_figr_style.py           simplified FigR-style linking (Spearman, ±100 kb, positive only, no smoothing)
+analysis/07_per_line_and_single_line.py  per-line r_k of pooled calls (Supplementary Fig. S3), single-line associations
+                                    vs matched trans, withdrawn gene lists (Supplementary Data 1)
 preprocessing/                      description of the preprocessing that produces checkpoints/ (see preprocessing/README.md)
 results/                            place for the summary files produced by the analysis scripts (see below)
 ```
@@ -56,6 +58,7 @@ python analysis/03_revision_figures.py  --prostate /path/to/prostate_rebuild --b
 python analysis/04_drug_response.py     --data /path/to/prostate_rebuild
 python analysis/05_lmm_validation.py    --data /path/to/prostate_rebuild
 python analysis/06_figr_style.py        --data /path/to/prostate_rebuild
+python analysis/07_per_line_and_single_line.py --data /path/to/prostate_rebuild
 ```
 
 Every expensive step is cached in `<data>/revision_out/`, so re-running resumes where it stopped.
@@ -77,6 +80,8 @@ are taken from them. Copy them to `results/` to archive a run:
 | `DRUG_RESPONSE_SUMMARY.json` | 04 | within-line drug response |
 | `P1_pairs_cellline.csv.gz` | 01 | per-pair r_pool, r_WG, informative groups, I², closed-peak groups (prostate, cell line) |
 | `B0_design_donor_table.csv` | 02 | brain design by donor (Supplementary Table S2) |
+| `STEP2_SUMMARY.json`, `STEP3_SUMMARY.json` | 07 | per-line correlations and single-line associations (Section 3.1) |
+| `Supplementary_withdrawn_resistance_program.csv` | 07 | withdrawn gene lists (Supplementary Data 1) |
 
 ## Requirements
 
