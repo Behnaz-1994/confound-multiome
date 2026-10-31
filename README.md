@@ -27,7 +27,8 @@ Both datasets are public (GEO):
 ## Repository layout
 
 ```
-confound/core.py                    estimators, calibration (permutation, trans and matched-trans nulls), summaries
+confound/core.py estimators, calibration (permutation, trans and matched-trans nulls), summaries
+analysis/
 analysis/01_prostate_revision.py    prostate: reproduction of the original estimator, revised estimator, call decomposition,
                                     heterogeneity, sensitivity, trans / matched-trans nulls, permutation,
                                     treatment and library designs, cis-vs-trans comparison
